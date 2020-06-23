@@ -2,11 +2,16 @@ import React, {Component} from 'react';
 
 class Ninjas extends Component {
     render(){
+        // console.log(this.props);
+         const { name, age, belt } = this.props; // destructure the attributes
         return(
             <div className="ninja">
-            <div> Name: Mohamed</div>
-            <div>Age: 23</div>
-            <div>Belt: Black</div>
+            <div> Name: { name}</div>
+            <div>Age: {age}</div>
+            <div>Belt: {belt}</div>
+            {/* <div> Name: {this.props.name}</div>
+            <div>Age: {this.props.age}</div>
+            <div>Belt: {this.props.belt}</div> */}
             </div>
         )
     }
