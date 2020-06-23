@@ -19,38 +19,30 @@
                 name :  'Sadiq',
                 age : 35
             }
-            handleclick = (e) => {
-                // console.log(e.target);
-                // to change the state do the follwing
+            // here when i write name in input it will show above it char by char
+            handleChange = (e) => {
                 this.setState({
-                    name : 'karim'
+                    name : e.target.value
                 });
-                console.log(this.state);
             }
-            handleMouseOver(e){
-                console.log(e.target, e.pageX);
-                
-            }
-            handelCope(e){
-                console.log('Try to achieve it');
+            // when i click on submit, it prevent the page to back to the previous status
+            handleSubmit = (e) =>{
+                e.preventDefault();
+                console.log('form submitted' , this.state.name);
                 
             }
             render(){
                 return (
                     <div className="app-contect">
-                       <h1>Hey, ninjas</h1> 
-                       <p>{ Math.random() * 10} </p>   
-                       <p>My name is : { this.state.name} and I am  : 
-                        { this.state.age} </p>
-
-                        <button onClick={ this.handleclick}>Click me</button>
-                        <button  onMauseOver= {this.handleMouseOver} >Hover Me</button>
-                        <p onCopy={this.handelCope}>What i want i can achieve it</p>
+                       <h1> My name is : { this.state.name}</h1> 
+                       <form onSubmit={this.handleSubmit } >
+                        <input type="text" onChange={this.handleChange}/>
+                        <button>Submit</button>
+                        </form>
                     </div>
                 )
             }
         }
-
         ReactDOM.render(<App/>, document.getElementById('app'));
     </script>
 </body>
