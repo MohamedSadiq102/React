@@ -5,13 +5,20 @@ import Ninjas from './Ninja';
 // import './App.css';
 
 class App extends Component {
+  state = {
+    ninjas: [
+    {name : 'Sadiq', age : 23, belt : 'black'},
+    {name : 'Karim', age : 27, belt : 'white'},
+    {name : 'Sabri', age : 25, belt : 'green'}
+    ]
+  }
   render(){
   return (
     <div className="App">
     <h1>My First React App!</h1>
     <p>Sadiq</p>
-    <Ninjas name="Sadiq" age="33" belt="white"/>
-    <Ninjas name="karim" age="29" belt="red"/>
+    <Ninjas ninjas={this.state.ninjas}/>
+  
    { /*   <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
