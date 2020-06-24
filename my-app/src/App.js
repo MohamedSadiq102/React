@@ -7,18 +7,27 @@ import AddNinja from './AddNinja';
 class App extends Component {
   state = {
     ninjas: [
-    {name : 'Sadiq', age : 23, belt : 'black'},
-    {name : 'Karim', age : 27, belt : 'white'},
-    {name : 'Sabri', age : 26, belt : 'green'}
+    {name : 'Sadiq', age : 23, belt : 'black', id: 1},
+    {name : 'Karim', age : 27, belt : 'white', id: 2},
+    {name : 'Sabri', age : 26, belt : 'green', id:3}
     ]
   }
+
+  AddNinja = (ninja) => {
+    ninja.id = Math.random();
+    let ninjas = [...this.state.ninjas, ninja]
+    this.setState({
+      ninjas: ninjas
+    })
+  }
+
   render(){
   return (
     <div className="App">
     <h1>My First React App!</h1>
     <p>Sadiq</p>
     <Ninjas ninjas={this.state.ninjas}/>
-    <AddNinja />
+    <AddNinja addNinja = {this.addNinja}/>
    { /*   <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
