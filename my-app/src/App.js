@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Ninjas from './Ninja';
+import Ninjas from './Ninjas';
 import AddNinja from './AddNinja';
 // import logo from './logo.svg';
 // import './App.css';
@@ -21,27 +21,24 @@ class App extends Component {
     })
   }
 
+  deleteNinja = (id) => {
+    let ninjas = this.state.ninjas.filter(ninja => {
+      return ninja.id !== id;
+    });
+    this.setState({
+      ninjas : ninjas
+    })
+
+    }
+
   render(){
   return (
     <div className="App">
     <h1>My First React App!</h1>
     <p>Sadiq</p>
-    <Ninjas ninjas={this.state.ninjas}/>
+    <Ninjas deleteNinja={this.deleteNinja} ninjas={this.state.ninjas}/>
     <AddNinja addNinja = {this.addNinja}/>
-   { /*   <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Welcome to React
-        </a>
-      </header> */ }
+
     </div>
   );
   }
